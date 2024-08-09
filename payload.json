@@ -1,82 +1,50 @@
 {
-  "canIpForward": false,
-  "confidentialInstanceConfig": {
-    "enableConfidentialCompute": false
+  "availabilityDomain": "UK-LONDON-1-AD-1",
+  "compartmentId": "ocid1.compartment.oc1..aaaaaaaadgc6ruazyfiunvycsnflpqcyjwooyjdd4nfybu5ebveftvz2dxka",
+  "displayName": "slave1",
+  "shape": "VM.Standard.E2.1.Micro",
+  "sourceDetails": {
+    "sourceType": "image",
+    "imageId": "ocid1.image.oc1.uk-london-1.aaaaaaaaa2npyhqevp775tp6qk5jwg6vnutnveg3mbxxark6qpeanevrlhdq"
   },
-  "deletionProtection": false,
-  "description": "",
-  "disks": [
-    {
-      "autoDelete": true,
-      "boot": true,
-      "deviceName": "slave1",
-      "initializeParams": {
-        "diskSizeGb": "10",
-        "diskType": "projects/spark-371009/zones/us-west4-b/diskTypes/pd-balanced",
-        "labels": {},
-        "sourceImage": "projects/debian-cloud/global/images/debian-11-bullseye-v20221102"
-      },
-      "mode": "READ_WRITE",
-      "type": "PERSISTENT"
-    }
-  ],
-  "displayDevice": {
-    "enableDisplay": false
+  "createVnicDetails": {
+    "subnetId": "ocid1.subnet.oc1.uk-london-1.aaaaaaaavvjnvd2iussyk7432gp54qexq6lzkgblctgnb6erakjh4v6f3m7q",
+    "assignPublicIp": true,
+    "displayName": "vnic1",
+    "hostnameLabel": "slave1",
+    "privateIp": null,
+    "skipSourceDestCheck": false
   },
-  "guestAccelerators": [],
-  "keyRevocationActionType": "STOP",
-  "labels": {},
-  "machineType": "projects/spark-371009/zones/europe-west1-b/machineTypes/e2-medium",
   "metadata": {
-    "items": [
-      {
-        "key": "startup-script",
-        "value": "apt update\ncurl --output spark.tgz https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz\napt -y install default-jdk\ntar -xzvf spark.tgz\n./spark-3.3.1-bin-hadoop3/sbin/start-slave.sh spark://spark-master.europe-west1-b.c.spark-371009.internal:7077"
-      }
-    ]
+    "ssh_authorized_keys": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoAkvSlYsmZ8rR7HkEWMDHz6NpdfEUQFbR4HoaO+OusDnJzq+KZ9SYMOH9Fvc8VAVaniKZ3k0eiyufrzipI0Vh1LNat+tDp4Nlkf5l1IK9FOKtj+gvm8jGz7k80etei8nzHFof+6YYfvH55DJ4uZ78IokffPir4TZ/XS8Vt7QofP2brSdFOr0ZA0IwFSqxPqCSd7NmiSl9a4UAuvz/oP35stFqvHowAWadEroeO4rmjqu5upUGVzXGmM2iA/ND/uehvVgiyRPHK6BIAUTE7wS3VAAKZKECWUNlfFEsMJwOkpRliGqsi0dLS2v01QRm9zVIUzo1/5WalLf+qnea81E/QIDAQAB",
+    "user_data": "IyEvYmluL2Jhc2gKc3VkbyBhcHQgdXBkYXRlCmN1cmwgLS1vdXRwdXQgc3BhcmsudGd6IGh0dHBzOi8vZGxjZG4uYXBhY2hlLm9yZy9zcGFyay9zcGFyay0zLjMuMS9zcGFyay0zLjMuMS1iaW4taGFkb29wMy50Z3oKYXB0IC15IGluc3RhbGwgZGVmYXVsdC1qZGsKdGFyIC14enZ2ZiBzcGFyay50Z3oKLnMvc3BhcmstMy4zLjEtYmluLWhhZG9vcDMvc2Jpbi9zdGFydC1zbGF2ZS5zaCBzcGFyazovL3NwYXJrLW1hc3Rlci5ldXJvcGUtd2VzdDEtYi5jLnNwYXJrLTM3MTAwOS5pbnRlcm5hbDo3MDc3Cg=="
   },
-  "name": "slave1",
-  "networkInterfaces": [
-    {
-      "accessConfigs": [
-        {
-          "name": "External NAT",
-          "networkTier": "PREMIUM"
-        }
-      ],
-      "stackType": "IPV4_ONLY",
-      "subnetwork": "projects/spark-371009/regions/europe-west1/subnetworks/default"
-    }
-  ],
-  "reservationAffinity": {
-    "consumeReservationType": "ANY_RESERVATION"
+  "freeformTags": {
+    "Environment": "Development"
   },
-  "scheduling": {
-    "automaticRestart": false,
-    "instanceTerminationAction": "STOP",
-    "onHostMaintenance": "TERMINATE",
-    "provisioningModel": "SPOT"
+  "agentConfig": {
+    "isMonitoringDisabled": false,
+    "isManagementDisabled": false
   },
-  "serviceAccounts": [
-    {
-      "email": "569439294570-compute@developer.gserviceaccount.com",
-      "scopes": [
-        "https://www.googleapis.com/auth/devstorage.read_only",
-        "https://www.googleapis.com/auth/logging.write",
-        "https://www.googleapis.com/auth/monitoring.write",
-        "https://www.googleapis.com/auth/servicecontrol",
-        "https://www.googleapis.com/auth/service.management.readonly",
-        "https://www.googleapis.com/auth/trace.append"
-      ]
-    }
-  ],
-  "shieldedInstanceConfig": {
-    "enableIntegrityMonitoring": true,
-    "enableSecureBoot": false,
-    "enableVtpm": true
+  "instanceOptions": {
+    "areLegacyImdsEndpointsDisabled": false
   },
-  "tags": {
-    "items": []
+  "availabilityConfig": {
+    "recoveryAction": "RESTORE_INSTANCE"
   },
-  "zone": "projects/spark-371009/zones/europe-west1-b"
+  "shapeConfig": {
+    "ocpus": 1,
+    "memoryInGBs": 1
+  },
+  "launchOptions": {
+    "bootVolumeType": "ISCSI",
+    "firmware": "UEFI_64",
+    "networkType": "PARAVIRTUALIZED",
+    "remoteDataVolumeType": "PARAVIRTUALIZED",
+    "isPvEncryptionInTransitEnabled": false,
+    "isConsistentVolumeNamingEnabled": false
+  },
+  "instanceSourceViaImageDetails": {
+    "bootVolumeSizeInGBs": 50
+  }
 }
